@@ -273,8 +273,8 @@ A chaque réimport du cadastre il est nécessaire de recréer et mettre à jour 
 
         .. code-block:: sql
 
-            ALTER TABLE cadastre.parcelle_info add column tab_dreal_risques;
-            ALTER TABLE cadastre.parcelle_info add column tab_dreal;
+            ALTER TABLE cadastre.parcelle_info add column tab_dreal_risques varchar;
+            ALTER TABLE cadastre.parcelle_info add column tab_dreal varchar;
 
 
 * Lancer la fonction mettant à jour les champs
@@ -292,7 +292,7 @@ A chaque réimport du cadastre il est nécessaire de recréer et mettre à jour 
 
         .. code-block:: sql
 
-            ALTER TABLE cadastre.parcelle_info add column tab_patrimoine;
+            ALTER TABLE cadastre.parcelle_info add column tab_patrimoine varchar;
 
 
 * Lancer la fonction mettant à jour les champs

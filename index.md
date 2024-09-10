@@ -36,6 +36,9 @@ cadastre/I_maj_annuelle
 cadastre/II_gpu_docs_urba
 cadastre/III_filiation_parcelles
 cadastre/IV_mutation_immo
+cadastre/V_environnement_risques
+cadastre/VI_patrimoine
+
 ```
 
 ```{toctree}

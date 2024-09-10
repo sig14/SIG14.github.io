@@ -220,29 +220,16 @@ A chaque réimport du cadastre il est nécessaire de recréer et mettre à jour 
                 ALTER TABLE cadastre.parcelle_info
                 ADD tab_doc_urba varchar;
 
-
-* Créer les champs contenant l'html des déroulants détaillant les informations contenues dans le tableau
-
-        .. code-block:: sql
-
                 ALTER TABLE cadastre.parcelle_info
-                ADD deroulant_zonage varchar;
+                ADD tab_servitude varchar;
 
-                ALTER TABLE cadastre.parcelle_info
-                ADD deroulant_secteur varchar;
 
-                ALTER TABLE cadastre.parcelle_info
-                ADD deroulant_prescription varchar;
-
-                ALTER TABLE cadastre.parcelle_info
-                ADD deroulant_info varchar;
-
-* Lancer la fonction mettant à jour les champs (1 heure environ)
+* Lancer les fonction mettant à jour les champs (1 heure environ)
 
         .. code-block:: sql
 
                 select ref_urbanisme.fiches_parcelles_lizmap();
-
+                select ref_urbanisme.fiches_parcelles_servitudes_lizmap();
 
 7.2 - Filiations parcellaires
 ------------------------------
@@ -276,3 +263,40 @@ A chaque réimport du cadastre il est nécessaire de recréer et mettre à jour 
         .. code-block:: sql
 
             select ref_foncier.parcelles_valeur_fonciere_lizmap()
+
+
+
+7.4 - Risques et Environnement
+------------------------------
+
+* Créer les champs contenant l'html des déroulants détaillant les zonages de risques et de protection environnmentale
+
+        .. code-block:: sql
+
+            ALTER TABLE cadastre.parcelle_info add column tab_dreal_risques;
+            ALTER TABLE cadastre.parcelle_info add column tab_dreal;
+
+
+* Lancer la fonction mettant à jour les champs
+
+        .. code-block:: sql
+
+            select ref_dreal.fiches_parcelles_environnement_lizmap();
+            select ref_dreal.fiches_parcelles_risques_lizmap();
+
+
+7.5 - Patrimoine
+------------------------------
+
+* Créer les champs contenant l'html des déroulants détaillant les zonages de protection patrimoniales
+
+        .. code-block:: sql
+
+            ALTER TABLE cadastre.parcelle_info add column tab_patrimoine;
+
+
+* Lancer la fonction mettant à jour les champs
+
+        .. code-block:: sql
+
+            select ref_patrimoine.fiches_parcelles_patrimoine_lizmap();
